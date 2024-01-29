@@ -5,9 +5,9 @@ export class SendOrderController {
   async handle(req: Request, res: Response) {
     const { order_id } = req.body;
 
-    const sendOrder = new SendOrderService();
+    const sendOrderService = new SendOrderService();
 
-    const order = await sendOrder.execute({ order_id });
+    const order = await sendOrderService.execute({ order_id });
 
     return res.json(order);
   }

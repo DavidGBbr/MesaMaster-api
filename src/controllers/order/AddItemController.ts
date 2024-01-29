@@ -5,9 +5,13 @@ export class AddItemController {
   async handle(req: Request, res: Response) {
     const { order_id, product_id, amount } = req.body;
 
-    const addItem = new AddItemService();
+    const addItemService = new AddItemService();
 
-    const order = await addItem.execute({ order_id, product_id, amount });
+    const order = await addItemService.execute({
+      order_id,
+      product_id,
+      amount,
+    });
 
     return res.json(order);
   }
